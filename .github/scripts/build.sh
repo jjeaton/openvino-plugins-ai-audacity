@@ -4,8 +4,8 @@ source `dirname ${BASH_SOURCE[0]}`/config.sh
 
 brew install opencl-clhpp-headers
 
-#cp -r $WORKSPACE_PATH/mod-openvino $SOURCE_PATH/$AUDACITY_VERSION/modules
-#sed -i '' 's/set( MODULES/set( MODULES\n   mod-openvino/' $SOURCE_PATH/$AUDACITY_VERSION/modules/CMakeLists.txt
+cp -r $WORKSPACE_PATH/mod-openvino $SOURCE_PATH/$AUDACITY_VERSION/modules
+sed -i '' 's/set( MODULES/set( MODULES\n   mod-openvino/' $SOURCE_PATH/$AUDACITY_VERSION/modules/CMakeLists.txt
 
 mkdir -p $PACKAGE_PATH
 
@@ -38,9 +38,11 @@ make -j`sysctl -n hw.ncpu`
 
 find Release
 
-#cp $PACKAGE_PATH/m_openvino_toolkit_macos_11_0_2024.0.0.14509.34caeefd078_arm64/runtime/lib/arm64/Release/*.so \
-#    $BUILD_PATH/audacity/Release/Audacity.app/Contents/Frameworks
-#cp $PACKAGE_PATH/m_openvino_toolkit_macos_11_0_2024.0.0.14509.34caeefd078_arm64/runtime/lib/arm64/Release/*.dylib \
-#    $BUILD_PATH/audacity/Release/Audacity.app/Contents/Frameworks
-#cp $PACKAGE_PATH/m_openvino_toolkit_macos_11_0_2024.0.0.14509.34caeefd078_arm64/runtime/3rdparty/tbb/lib/libtbb.12.dylib \
-#    $BUILD_PATH/audacity/Release/Audacity.app/Contents/Frameworks
+cp $PACKAGE_PATH/m_openvino_toolkit_macos_11_0_2024.0.0.14509.34caeefd078_arm64/runtime/lib/arm64/Release/*.so \
+    $BUILD_PATH/audacity/Release/Audacity.app/Contents/Frameworks
+cp $PACKAGE_PATH/m_openvino_toolkit_macos_11_0_2024.0.0.14509.34caeefd078_arm64/runtime/lib/arm64/Release/*.dylib \
+    $BUILD_PATH/audacity/Release/Audacity.app/Contents/Frameworks
+cp $PACKAGE_PATH/m_openvino_toolkit_macos_11_0_2024.0.0.14509.34caeefd078_arm64/runtime/3rdparty/tbb/lib/libtbb.12.dylib \
+    $BUILD_PATH/audacity/Release/Audacity.app/Contents/Frameworks
+
+xattr -cr $BUILD_PATH/audacity/Release/Audacity.app
