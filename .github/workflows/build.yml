@@ -51,9 +51,13 @@ jobs:
         run: |
           .github/scripts/build.sh
 
+      - name: Pack Audacity.app
+        run: |
+          .github/scripts/pack.sh
+
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: ${{ env.PACKAGE_NAME }}
-          path: ${{ env.BUILD_PATH }}/audacity/Release
+          path: $ARTIFACT_PATH/$PACKAGE_NAME.zip
           retention-days: 90

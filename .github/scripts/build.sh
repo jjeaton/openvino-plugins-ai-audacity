@@ -38,8 +38,7 @@ make -j`sysctl -n hw.ncpu`
 
 find Release
 
-mkdir -p $ARTIFACT_PATH/$PACKAGE_NAME/Contents/modules
-mkdir -p $ARTIFACT_PATH/$PACKAGE_NAME/Contents/Frameworks
+mkdir -p $ARTIFACT_PATH
 
 cp $PACKAGE_PATH/m_openvino_toolkit_macos_11_0_2024.0.0.14509.34caeefd078_arm64/runtime/lib/arm64/Release/*.so \
     $BUILD_PATH/audacity/Release/Audacity.app/Contents/Frameworks
