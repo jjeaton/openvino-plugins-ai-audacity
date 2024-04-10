@@ -53,5 +53,5 @@ cp $PACKAGE_PATH/libtorch/lib/libtorch.dylib \
 cp $PACKAGE_PATH/libtorch/lib/libtorch_cpu.dylib \
     $BUILD_PATH/audacity/Release/Audacity.app/Contents/Frameworks
 
-cp $BUILD_PATH/whisper/lib/libwhisper.dylib \
+cp $PACKAGE_PATH/whisper/lib/libwhisper.dylib \
     $BUILD_PATH/audacity/Release/Audacity.app/Contents/Frameworks
